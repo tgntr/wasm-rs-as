@@ -1,4 +1,4 @@
-use wasmer::{imports, Instance, Module, Store, Value, Function};
+use wasmer::{imports, Instance, Module, Store, Function};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let wasm: &[u8] = include_bytes!("../build/optimized.wasm");
@@ -10,9 +10,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     };
     let instance = Instance::new(&module, &import_object)?;
-    let wasm_add = instance.exports.get_function("add")?;
-    let result = wasm_add.call(&[Value::I64(1), Value::I64(1)])?;
-    assert_eq!(result[0], Value::I64(3));
+    let add_func = instance.exports.get_function("add")?.native::<(i64, i64), i64>()?;
+    let result = add_func.call(1, 1)?;
+    assert_eq!(result, 3);
 
     Ok(())
 }
