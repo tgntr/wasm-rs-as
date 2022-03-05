@@ -3,9 +3,5 @@ name = "wasmer-rust-assemblyscript"
 version = "0.1.0"
 edition = "2021"
 
-[[bin]]
-name = "wasmer-rust-assemblyscript"
-path = "rust/main.rs"
-
 [dependencies]
 wasmer = "2.0"

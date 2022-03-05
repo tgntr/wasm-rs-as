@@ -1,9 +1,8 @@
 {
   "scripts": {
-    "test": "node tests",
     "asbuild:untouched": "asc assembly/index.ts --target debug",
     "asbuild:optimized": "asc assembly/index.ts --target release",
-    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+    "start": "npm run asbuild:optimized && cargo run"
   },
   "devDependencies": {
     "assemblyscript": "^0.19.23"
