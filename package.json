@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "asbuild:untouched": "asc assembly/index.ts --target debug",
-    "asbuild:optimized": "asc assembly/index.ts --target release --runtime stub --use abort=assembly/abort/abort",
-    "start": "npm run asbuild:optimized && cargo run"
+    "build": "asb assembly/contract.ts",
+    "runtime": "cargo run",
+    "test": "cd tests && cargo integration-test"
   },
   "devDependencies": {
+    "asbuild": "^0.2.0",
     "assemblyscript": "^0.19.23"
   }
 }
