@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "asb assembly/contract.ts",
-    "test": "cd tests && cargo integration-test",
+    "build": "asb assembly/contract.ts && cd wasmer_runtime && cargo build",
+    "test": "cd wasmer_runtime && cargo integration-test",
     "start": "npm run build && npm run test"
   },
   "devDependencies": {
