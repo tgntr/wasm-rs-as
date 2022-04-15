@@ -2,7 +2,8 @@
   "options": {
     "binaryFile": "build/contract.wasm",
     "runtime": "incremental",
-    "use": "abort="
+    "use": "abort=",
+    "debug": true
   },
   "targets": {
     "release": {
