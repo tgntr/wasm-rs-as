@@ -15,8 +15,8 @@ export function allocate(size: usize): usize {
     return changetype<usize>(region);
 }
 
-export function deallocate(pointer: usize): void {
-    const offsetPtr = changetype<Region>(pointer).offset;
-    heap.free(pointer);
+export function deallocate(regionPtr: usize): void {
+    const offsetPtr = changetype<Region>(regionPtr).offset;
+    heap.free(regionPtr);
     heap.free(offsetPtr);
 }
